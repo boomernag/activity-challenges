@@ -23,6 +23,11 @@ def get_challenges():
     return render_template("challenges.html", challenges=challenges)
 
 
+@app.route("/add_challenge")
+def add_challenge():
+    return render_template("add_challenge.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
