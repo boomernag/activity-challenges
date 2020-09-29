@@ -9,8 +9,14 @@
 				<span class="card-title"><strong>{{ challenge.challenge_title }}</strong></span>
 				<p>{{ challenge.challenge_description }}</p>
 			</div>
+            <div>
+                <a href="" class="btn-small light-blue lighten-1">Edit</a>
+            </div>
 			<div class="card-action">
-				<a href="#">Read more...</a>
+                  <i class="small material-icons white-text">access_time</i>
+                  <i class="small material-icons white-text">check</i>
+                  <p class="orange-text text-accent-3">{{ challenge.time }} min</p>
+                  <p class="orange-text text-accent-3">{{ challenge.completions }} Completions</p>
 			</div>
 		</div>
 	</div>
