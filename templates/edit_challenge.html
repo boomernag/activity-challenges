@@ -13,6 +13,7 @@
           name="challenge_title"
           minlength="5"
           maxlength="50"
+          value="{{ challenge.challenge_title }}"
           type="text"
           class="validate"
           required
@@ -31,7 +32,7 @@
           maxlength="200"
           class="materialize-textarea"
           required
-        ></textarea>
+        >{{- challenge.challenge_description -}}</textarea>
         <label for="challenge_description">Challenge Descripition</label>
       </div>
     </div>
