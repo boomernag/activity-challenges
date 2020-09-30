@@ -41,6 +41,15 @@ def add_challenge():
 
 @app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
 def edit_challenge(challenge_id):
+    if request.method == "POST":
+        submit = {
+            "challenge_title": request.form.get("challenge_title"),
+            "challenge_description": request.form.get("challenge_description"),
+            "time": request.form.get("time"),
+        }
+        mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+        flash("Challenge Successully Updated")
+
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     return render_template("edit_challenge.html", challenge=challenge)
 
