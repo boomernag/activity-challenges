@@ -39,6 +39,12 @@ def add_challenge():
     return render_template("add_challenge.html")
 
 
+@app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
+def edit_challenge(challenge_id):
+    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    return render_template("edit_challenge.html", challenge=challenge)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
