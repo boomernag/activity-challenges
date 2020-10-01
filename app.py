@@ -23,6 +23,12 @@ def get_challenges():
     challenges = mongo.db.challenges.find()
     return render_template("challenges.html", challenges=challenges)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
+    return render_template("challenges.html", challenges=challenges)
+
 
 @app.route("/add_challenge", methods=["GET", "POST"])
 def add_challenge():
