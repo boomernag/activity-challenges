@@ -9,3 +9,8 @@
 .btn-small {
   margin: 5px;
 }
+
+.card-panel {
+    margin: 0 auto;
+    align-content: horizontal;
+}

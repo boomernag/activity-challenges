@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add Challenge</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit Challenge</h3>
 
 <div class="row card-panel grey lighten-5">
   <form
@@ -45,32 +45,14 @@
     <!-- challenge time-->
     <div class="row">
       <div class="col s12">
-        <i class="far fa-clock-left prefix light-blue-text text-darken-4"></i>
-        <h4>Time to complete</h4>
-        <p>
-          <label for="1">
-            <input type="radio" id="1" name="time" value="1" />
-            <span>1 minute</span>
-          </label>
-        </p>
-        <p>
-          <label for="2">
-            <input type="radio" id="2" name="time" value="5" />
-            <span>5 minutes</span>
-          </label>
-        </p>
-        <p>
-          <label for="3">
-            <input type="radio" id="3" name="time" value="10" />
-            <span>10 minutes</span>
-          </label>
-        </p>
-        <p>
-          <label for="4">
-            <input type="radio" id="4" name="time" value="more than 10" />
-            <span>more than 10 minutes</span>
-          </label>
-        </p>
+        <i class="far fa-clock small prefix light-blue-text text-darken-4"></i>
+        <label for="timetocomplete">Time to complete</label>
+        {% for time in times %}
+        <label for="{{time}}">
+          <input type="radio" id="{{time}}" name="timetocomplete" value="{{time}}" {% if time|string == checked.time|string %}checked{% endif %} />
+          <span>{{ time }} minute(s)</span>
+        </label>
+        {% endfor %}
       </div>
     </div>
     <!-- submit button -->
@@ -83,7 +65,7 @@
         >
           Cancel <i class="fas fa-times-circle right"></i>
         </a>
-        <button type="submit" class="btn-large light-blue darken-1 text-shaw">
+        <button type="submit" class="btn-large light-blue darken-1 text-shadoww">
           Edit Challenge <i class="fas fa-plus-square right"></i>
         </button>
       </div>

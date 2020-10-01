@@ -36,28 +36,32 @@ def add_challenge():
         challenge = {
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
-            "time": request.form.get("time"),
+            "time": request.form.get("timetocomplete"),
             "completions": request.form.get("completions") 
         }
         mongo.db.challenges.insert_one(challenge)
         flash("Task Successully Added")
         
-    return render_template("add_challenge.html")
+    return render_template("add_challenge.html", times=[1, 5, 10, 15])
 
 
 @app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
 def edit_challenge(challenge_id):
+    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+
+    checkedTime = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    # checkedTime = challenge.time
     if request.method == "POST":
         submit = {
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
-            "time": request.form.get("time"),
+            "time": request.form.get("timetocomplete"),
         }
         mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
         flash("Challenge Successully Updated")
 
-    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
-    return render_template("edit_challenge.html", challenge=challenge)
+
+    return render_template("edit_challenge.html", value=checkedTime, challenge=challenge, times=[1, 5, 10, 15], checked=checkedTime)
 
 
 @app.route("/delete_challenge/<challenge_id>")

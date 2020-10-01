@@ -38,32 +38,14 @@
     <!-- challenge time-->
     <div class="row">
       <div class="col s12">
-        <i class="far fa-clock-left prefix light-blue-text text-darken-4"></i>
-        <h4>Time to complete</h4>
-        <p>
-          <label for="1">
-            <input type="radio" id="1" name="time" value="1" />
-            <span>1 minute</span>
-          </label>
-        </p>
-        <p>
-          <label for="2">
-            <input type="radio" id="2" name="time" value="5" />
-            <span>5 minutes</span>
-          </label>
-        </p>
-        <p>
-          <label for="3">
-            <input type="radio" id="3" name="time" value="10" />
-            <span>10 minutes</span>
-          </label>
-        </p>
-        <p>
-          <label for="4">
-            <input type="radio" id="4" name="time" value="more than 10" />
-            <span>more than 10 minutes</span>
-          </label>
-        </p>
+        <i class="far fa-clock prefix light-blue-text text-darken-4"></i>
+        <label for="timetocomplete">Time to complete</label>
+        {% for time in times %}
+        <label for="{{time}}">
+          <input type="radio" id="{{time}}" name="timetocomplete" value="{{time}}" />
+          <span>{{ time }} minute(s)</span>
+        </label>
+        {% endfor %}
       </div>
     </div>
     <!-- submit button -->
