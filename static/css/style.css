@@ -9,8 +9,22 @@
 .btn-small {
   margin: 5px;
 }
+/* --- Icons on challenge card for edit and delete ---- */
+.fa-pencil-alt:before {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    margin: 10px;
+}
 
-.card-panel {
-    margin: 0 auto;
-    align-content: horizontal;
+.fa-trash-alt:before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+.completion-icon {
+    position: relative;
+    margin-left: 10%;
 }
