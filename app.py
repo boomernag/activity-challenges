@@ -60,6 +60,7 @@ def edit_challenge(challenge_id):
         }
         mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
         flash("Challenge Successfully Updated")
+        return redirect(url_for("get_challenges"))
 
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     return render_template("edit_challenge.html", value=checkedTime, challenge=challenge, times=[1, 5, 10, 15], checked=checkedTime)
