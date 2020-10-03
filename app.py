@@ -44,7 +44,6 @@ def add_challenge():
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
-            "completions": request.form.get("completions") 
         }
         mongo.db.challenges.insert_one(challenge)
         flash("Task Successully Added")

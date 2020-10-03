@@ -56,14 +56,10 @@
         <label for="timetocomplete-icon" class="orange-text line-height"
           >{{ challenge.time }} min</label
         >
-        <!--
-        <i class="completion-icon small material-icons white-text">check</i>
-        <label for="completion-icon" class="orange-text"
-          >{{ challenge.completions }} Completions</label
-        >
-        -->
         <a
-          class="btn activate white card-icon fas fa-flag-checkered prefix grey-text tooltipped" data-position="bottom" data-tooltip="Activate challenge"
+          class="btn activate white card-icon fas fa-flag-checkered prefix grey-text tooltipped"
+          data-position="top"
+          data-tooltip="Activate challenge"
           href="{{ url_for('get_executed_challenges', challenge_id=challenge._id) }}"
         ></a>
       </div>
