@@ -52,7 +52,7 @@ def add_challenge():
     return render_template("add_challenge.html", times=[1, 5, 10, 15])
 
 
-@app.route("/edit_challenge/<challenge_id>", methods = ["POST"])
+@app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
 def edit_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
 
