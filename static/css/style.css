@@ -24,9 +24,10 @@
     margin: 10px;
 }
 
-.completion-icon {
-    position: relative;
-    margin-left: 10%;
+.activate {
+    position: absolute;
+    right: 0;
+    margin-right: 10%;
 }
 
   body {

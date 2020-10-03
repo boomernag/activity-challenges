@@ -23,7 +23,14 @@ def get_challenges():
     challenges = mongo.db.challenges.find()
     return render_template("challenges.html", challenges=challenges)
 
-@app.route("/search", methods=["GET", "POST"])
+
+@app.route("/get_executed_challenges")
+def get_executed_challenges():
+    challenges = mongo.db.executed_challenges.find()
+    return render_template("executed_challenges.html", challenges=challenges)
+
+
+@app.route("/search", methods=["GET"])
 def search():
     query = request.form.get("query")
     challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
@@ -46,7 +53,7 @@ def add_challenge():
     return render_template("add_challenge.html", times=[1, 5, 10, 15])
 
 
-@app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
+@app.route("/edit_challenge/<challenge_id>", methods = ["POST"])
 def edit_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
 
