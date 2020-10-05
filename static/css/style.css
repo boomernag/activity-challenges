@@ -24,12 +24,20 @@
     margin: 10px;
 }
 
+/* --- classes for activate and complete buttons --- */
 .activate {
     position: absolute;
     right: 0;
     margin-right: 10%;
 }
 
+.complete {
+    position: absolute;
+    right: 0;
+    margin-right: 10%;
+}
+
+/* --- sticky footer --- */
   body {
     display: flex;
     min-height: 100vh;

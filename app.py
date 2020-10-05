@@ -24,10 +24,10 @@ def get_challenges():
     return render_template("challenges.html", challenges=challenges)
 
 
-@app.route("/get_executed_challenges")
-def get_executed_challenges():
-    challenges = mongo.db.executed_challenges.find()
-    return render_template("executed_challenges.html", challenges=challenges)
+@app.route("/home")
+def home():
+    challenges = list(mongo.db.challenges.find({"activated": "true"}))
+    return render_template("challenges.html", challenges=challenges)
 
 
 @app.route("/search", methods=["GET"])
@@ -44,12 +44,13 @@ def add_challenge():
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
+            "activated": "true",
         }
         mongo.db.challenges.insert_one(challenge)
         flash("Task Successully Added")
         return redirect(url_for("get_challenges"))
         
-    return render_template("add_challenge.html", times=[1, 5, 10, 15])
+    return render_template("add_challenge.html", times=[1, 2, 5, 10])
 
 
 @app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
@@ -63,13 +64,44 @@ def edit_challenge(challenge_id):
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
+            "activated": "true",
         }
         mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
         flash("Challenge Successfully Updated")
         return redirect(url_for("get_challenges"))
 
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
-    return render_template("edit_challenge.html", value=checkedTime, challenge=challenge, times=[1, 5, 10, 15], checked=checkedTime)
+    return render_template("edit_challenge.html", value=checkedTime, challenge=challenge, times=[1, 2, 5, 10], checked=checkedTime)
+
+
+@app.route("/activated_challenge/<challenge_id>")
+def activated_challenge(challenge_id):
+    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+
+    submit = {
+        "challenge_title": challenge["challenge_title"],
+        "challenge_description": challenge["challenge_description"],
+        "time": challenge["time"],
+        "activated": "true",
+    }
+    mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+    flash("Challenge Activated")
+    return redirect(url_for("get_challenges"))
+
+
+@app.route("/deactivated_challenge/<challenge_id>")
+def deactivated_challenge(challenge_id):
+    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+
+    submit = {
+        "challenge_title": challenge["challenge_title"],
+        "challenge_description": challenge["challenge_description"],
+        "time": challenge["time"],
+        "activated": "false",
+    }
+    mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+    flash("Challenge Completed")
+    return redirect(url_for("get_challenges"))
 
 
 @app.route("/delete_challenge/<challenge_id>")
