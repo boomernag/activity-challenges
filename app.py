@@ -27,7 +27,7 @@ def get_challenges():
 @app.route("/home")
 def home():
     challenges = list(mongo.db.challenges.find({"activated": "true"}))
-    return render_template("challenges.html", challenges=challenges)
+    return render_template("home.html", challenges=challenges)
 
 
 @app.route("/search", methods=["GET"])

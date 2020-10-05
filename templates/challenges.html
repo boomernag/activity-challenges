@@ -40,6 +40,7 @@
         <p>{{ challenge.challenge_description }}</p>
       </div>
       <div>
+      {% if challenge.activated == "false" %}
         <a
           class="card-icon fas fa-pencil-alt prefix grey-text"
           href="{{ url_for('edit_challenge', challenge_id=challenge._id) }}"
@@ -48,6 +49,7 @@
           class="card-icon fas fa-trash-alt prefix grey-text text-accent-4"
           href="{{ url_for('delete_challenge', challenge_id=challenge._id) }}"
         ></a>
+        {% endif %}
       </div>
       <div class="card-action">
         <i class="timetocomplete-icon small material-icons white-text"
@@ -65,7 +67,7 @@
         ></a>
         {% else %}
         <a
-          class="btn activate red fas fa-stop-circle prefix white-text tooltipped"
+          class="btn complete red fas fa-stop-circle prefix white-text tooltipped"
           data-position="top"
           data-tooltip="Complete challenge"
           href="{{ url_for('deactivated_challenge', challenge_id=challenge._id) }}"
