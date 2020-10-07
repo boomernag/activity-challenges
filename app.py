@@ -1,9 +1,12 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, Response, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask import Flask, request, Response
+from database.db import initialize_db
+from database.challenges import Challenges
 if os.path.exists("env.py"):
     import env
 
@@ -16,12 +19,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+app.config['MONGODB_SETTINGS'] = {'host': 'mongodb://localhost/database' initialize_db(app)}
 
 @app.route("/")
 @app.route("/get_challenges")
 def get_challenges():
-    challenges = mongo.db.challenges.find()
-    return render_template("challenges.html", challenges=challenges)
+   challenges = Challenges.objects().to_json()
+    return Response(challenges, mimetype="application/json", status=200)
 
 
 @app.route("/home")
