@@ -58,6 +58,12 @@
         <label for="timetocomplete-icon" class="orange-text line-height"
           >{{ challenge.time }} min</label
         >
+        <i class="timetocomplete-icon small material-icons white-text"
+          >check</i
+        >
+        <label for="timetocomplete-icon" class="orange-text line-height"
+          >{{ challenge.completions }} </label
+        >
         {% if challenge.activated == "false" %}
         <a
           class="btn activate white fas fa-flag-checkered prefix grey-text tooltipped"

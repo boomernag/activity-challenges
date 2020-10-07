@@ -44,16 +44,17 @@ def add_challenge():
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
-            "activated": "true",
+            "activated": "false",
+            "completions": 0,
         }
         mongo.db.challenges.insert_one(challenge)
         flash("Task Successully Added")
         return redirect(url_for("get_challenges"))
-        
+
     return render_template("add_challenge.html", times=[1, 2, 5, 10])
 
 
-@app.route("/edit_challenge/<challenge_id>", methods = ["GET", "POST"])
+@app.route("/edit_challenge/<challenge_id>", methods=["GET", "POST"])
 def edit_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
 
@@ -64,9 +65,10 @@ def edit_challenge(challenge_id):
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
-            "activated": "true",
+            "activated": "false",
+            "completions": 0,
         }
-        mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+        mongo.db.challenges.update({"_id": ObjectId(challenge_id)},{"$set": submit})
         flash("Challenge Successfully Updated")
         return redirect(url_for("get_challenges"))
 
@@ -84,7 +86,8 @@ def activated_challenge(challenge_id):
         "time": challenge["time"],
         "activated": "true",
     }
-    mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+
+    mongo.db.challenges.update_one({"_id": ObjectId(challenge_id)}, {"$set": submit})
     flash("Challenge Activated")
     return redirect(url_for("get_challenges"))
 
@@ -92,14 +95,18 @@ def activated_challenge(challenge_id):
 @app.route("/deactivated_challenge/<challenge_id>")
 def deactivated_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    print(challenge)
+    completions_count = challenge["completions"]
+    completions_count += 1
 
     submit = {
         "challenge_title": challenge["challenge_title"],
         "challenge_description": challenge["challenge_description"],
         "time": challenge["time"],
         "activated": "false",
+        "completions": completions_count
     }
-    mongo.db.challenges.update({"_id": ObjectId(challenge_id)}, submit)
+    mongo.db.challenges.update_one({"_id": ObjectId(challenge_id)}, {"$set": submit})
     flash("Challenge Completed")
     return redirect(url_for("get_challenges"))
 
@@ -113,5 +120,5 @@ def delete_challenge(challenge_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
+            port=int(os.environ.get("PORT")),
             debug=True)
