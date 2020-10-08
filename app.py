@@ -30,7 +30,7 @@ def home():
     return render_template("home.html", challenges=challenges)
 
 
-@app.route("/search", methods=["GET"])
+@app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))

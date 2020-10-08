@@ -9,6 +9,15 @@
 .btn-small {
   margin: 5px;
 }
+
+.card {
+    opacity: 95%;
+}
+
+.time-label {
+    size: 30px;
+}
+
 /* --- Icons on challenge card for edit and delete ---- */
 .fa-pencil-alt:before {
     position: absolute;
@@ -16,6 +25,7 @@
     top: 0;
     margin: 10px;
 }
+
 
 .fa-trash-alt:before {
     position: absolute;
@@ -37,13 +47,99 @@
     margin-right: 10%;
 }
 
+
 /* --- sticky footer --- */
   body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: black;
   }
 
   main {
     flex: 1 0 auto;
   }
+
+  /* --- breakpoints --- */
+@media screen and (max-width: 550px) {
+  .display-none {
+      display: none;
+  }
+}
+@media screen and (max-width: 899px) {
+  a.brand-logo {
+    font-size: 20px;
+    align-content: left;
+    margin-left: 1em;
+  }
+}
+@media screen and (min-width: 900px) {
+  a.brand-logo {
+    margin-left: 1em;
+  }
+}
+
+/* --- Button effect --- */
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}

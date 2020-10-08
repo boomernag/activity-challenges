@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Challenge</h3>
+<h3 class="orange-text text-darken-4 center-align">Edit Challenge</h3>
 
 <div class="row card-panel grey lighten-5">
   <form
@@ -11,7 +11,7 @@
     <!-- challenge title-->
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+        <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
         <input
           id="challenge_title"
           name="challenge_title"
@@ -28,7 +28,7 @@
     <!-- challenge description-->
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+        <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
         <textarea
           id="challenge_description"
           name="challenge_description"
@@ -45,10 +45,10 @@
     <!-- challenge time-->
     <div class="row s12 m4">
       <div class="col s12 m4">
-        <i class="far fa-clock small prefix light-blue-text text-darken-4"></i>
+        <i class="far fa-clock small prefix orange-text text-darken-4"></i>
         <label for="timetocomplete">Time to complete</label>
         {% for time in times %}
-        <div>
+        <div class="time">
           <label for="{{time}}">
             <input type="radio" id="{{time}}" name="timetocomplete"
             value="{{time}}" {% if time|string == checked.time|string
@@ -65,13 +65,13 @@
         <!-- cancel button -->
         <a
           href="{{ url_for('get_challenges') }}"
-          class="btn-large red text-shadow"
+          class="btn-small grey text-shadow"
         >
           Cancel <i class="fas fa-times-circle right"></i>
         </a>
         <button
           type="submit"
-          class="btn-large light-blue darken-1 text-shadoww"
+          class="btn-small orange darken-1 text-shadoww"
         >
           Edit Challenge <i class="fas fa-plus-square right"></i>
         </button>

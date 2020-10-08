@@ -1,46 +1,49 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">All Challenges</h3>
-
-<div class="row card-panel grey lighten-5">
-  <form action="{{ url_for('search') }} " method="post" class="form col s12">
-    <div class="row valign-wrapper center-align">
-      <div class="input-field col s12 m8">
-        <i class="fas fa-search prefix light-blue-text text-darken"></i>
-        <input
-          type="text"
-          name="query"
-          minlength="3"
-          id="query"
-          class="validate"
-          required
-        />
-        <label for="query">Search Challenges</label>
+<h3 class="orange-text text-darken-4 center-align">All Challenges</h3>
+<div class="div container">
+  <div class="row card-panel transparent">
+    <form action="{{ url_for('search') }} " method="post" class="form">
+      <div class="row valign-wrapper center-align">
+        <div class="input-field col s12 m8">
+          <i class="fas fa-search prefix grey-text"></i>
+          <input
+            type="text"
+            name="query"
+            minlength="3"
+            id="query"
+            class="validate"
+            required
+          />
+          <label class="display-none" for="query">Search Challenges</label>
+        </div>
+        <div class="col s12 m8">
+          <a
+            href=" {{ url_for('get_challenges') }} "
+            class="col grey btn-small text-shadow"
+            >Reset</a
+          >
+          <button type="submit" class="col grey darken-1 btn-small text-shadow">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
       </div>
-      <div class="col s12 m8">
-        <a href=" {{ url_for('get_challenges') }} " class="red btn text-shadow"
-          >Reset</a
-        >
-        <button type="submit" class="light-blue darken-1 btn text-shadow">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 {% for challenge in challenges %}
-<ul class="row">
-  <div class="col s12 m4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
+<div class="container">
+  <div class="row">
+    <div class="card light-grey darken-1">
+      <div class="card-content black-text accent-4">
         <span class="card-title"
           ><strong>{{ challenge.challenge_title }}</strong></span
         >
         <p>{{ challenge.challenge_description }}</p>
       </div>
       <div>
-      {% if challenge.activated == "false" %}
+        {% if challenge.activated == "false" %}
         <a
           class="card-icon fas fa-pencil-alt prefix grey-text"
           href="{{ url_for('edit_challenge', challenge_id=challenge._id) }}"
@@ -51,29 +54,29 @@
         ></a>
         {% endif %}
       </div>
-      <div class="card-action">
-        <i class="timetocomplete-icon small material-icons white-text"
+      <div class="card-action grey lighten-5">
+        <i class="timetocomplete-icon small material-icons blue-grey-text"
           >access_time</i
         >
         <label for="timetocomplete-icon" class="orange-text line-height"
           >{{ challenge.time }} min</label
         >
-        <i class="timetocomplete-icon small material-icons white-text"
+        <i class="timetocomplete-icon small material-icons blue-grey-text"
           >check</i
         >
         <label for="timetocomplete-icon" class="orange-text line-height"
-          >{{ challenge.completions }} </label
-        >
+          >{{ challenge.completions }}
+        </label>
         {% if challenge.activated == "false" %}
         <a
-          class="btn activate white fas fa-flag-checkered prefix grey-text tooltipped"
+          class="btn activate hvr-bob white fas fa-flag-checkered prefix grey-text tooltipped"
           data-position="top"
           data-tooltip="Activate challenge"
           href="{{ url_for('activated_challenge', challenge_id=challenge._id) }}"
         ></a>
         {% else %}
         <a
-          class="btn complete red fas fa-stop-circle prefix white-text tooltipped"
+          class="btn complete hvr-bob red fas fa-stop-circle prefix white-text tooltipped"
           data-position="top"
           data-tooltip="Complete challenge"
           href="{{ url_for('deactivated_challenge', challenge_id=challenge._id) }}"
@@ -82,5 +85,5 @@
       </div>
     </div>
   </div>
-  {% endfor %} {% endblock %}
-</ul>
+</div>
+{% endfor %} {% endblock %}
