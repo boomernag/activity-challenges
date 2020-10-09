@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.exceptions import HTTPException
 if os.path.exists("env.py"):
     import env
 
@@ -44,7 +45,7 @@ def add_challenge():
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
-            "activated": "false",
+            "activated": False,
             "completions": 0,
         }
         mongo.db.challenges.insert_one(challenge)
@@ -57,6 +58,13 @@ def add_challenge():
 @app.route("/edit_challenge/<challenge_id>", methods=["GET", "POST"])
 def edit_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    if not challenge:
+        flash("Challenge does not exist")
+        return redirect(url_for("get_challenges"))
+
+    if challenge['activated']:
+        flash("Challenge cannot be edited while activated")
+        return redirect(url_for("get_challenges"))
 
     checkedTime = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     # checkedTime = challenge.time
@@ -65,10 +73,11 @@ def edit_challenge(challenge_id):
             "challenge_title": request.form.get("challenge_title"),
             "challenge_description": request.form.get("challenge_description"),
             "time": request.form.get("timetocomplete"),
-            "activated": "false",
+            "activated": False,
             "completions": 0,
         }
-        mongo.db.challenges.update({"_id": ObjectId(challenge_id)},{"$set": submit})
+        mongo.db.challenges.update(
+            {"_id": ObjectId(challenge_id)}, {"$set": submit})
         flash("Challenge Successfully Updated")
         return redirect(url_for("get_challenges"))
 
@@ -84,10 +93,11 @@ def activated_challenge(challenge_id):
         "challenge_title": challenge["challenge_title"],
         "challenge_description": challenge["challenge_description"],
         "time": challenge["time"],
-        "activated": "true",
+        "activated": True,
     }
 
-    mongo.db.challenges.update_one({"_id": ObjectId(challenge_id)}, {"$set": submit})
+    mongo.db.challenges.update_one(
+        {"_id": ObjectId(challenge_id)}, {"$set": submit})
     flash("Challenge Activated")
     return redirect(url_for("get_challenges"))
 
@@ -95,7 +105,6 @@ def activated_challenge(challenge_id):
 @app.route("/deactivated_challenge/<challenge_id>")
 def deactivated_challenge(challenge_id):
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
-    print(challenge)
     completions_count = challenge["completions"]
     completions_count += 1
 
@@ -103,19 +112,36 @@ def deactivated_challenge(challenge_id):
         "challenge_title": challenge["challenge_title"],
         "challenge_description": challenge["challenge_description"],
         "time": challenge["time"],
-        "activated": "false",
+        "activated": False,
         "completions": completions_count
     }
-    mongo.db.challenges.update_one({"_id": ObjectId(challenge_id)}, {"$set": submit})
+    mongo.db.challenges.update_one(
+        {"_id": ObjectId(challenge_id)}, {"$set": submit})
     flash("Challenge Completed")
     return redirect(url_for("get_challenges"))
 
 
 @app.route("/delete_challenge/<challenge_id>")
 def delete_challenge(challenge_id):
+    challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    if not challenge:
+        flash("Challenge does not exist")
+        return redirect(url_for("get_challenges"))
+
     mongo.db.challenges.remove({"_id": ObjectId(challenge_id)})
-    flash("Challenge Successully Deleted")
+    flash("Challenge Successfully Deleted")
     return redirect(url_for("get_challenges"))
+
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # pass through HTTP errors
+    if isinstance(e, HTTPException):
+        return e
+
+    # now you're handling non-HTTP exceptions only
+    flash("Challenge does not exist")
+    return render_template("challenges.html", e=e), 500
 
 
 if __name__ == "__main__":

@@ -41,7 +41,7 @@
   <div class="row">
     <div class="card white">
       <div class="white">
-        {% if challenge.activated == "false" %}
+        {% if challenge.activated == False %}
         <a
           class="card-icon fas fa-pencil-alt prefix grey-text"
           href="{{ url_for('edit_challenge', challenge_id=challenge._id) }}"
@@ -72,7 +72,7 @@
         <label for="timetocomplete-icon" class="orange-text line-height"
           >{{ challenge.completions }}
         </label>
-        {% if challenge.activated == "false" %}
+        {% if challenge.activated == False %}
         <a
           class="btn activate hvr-bob fas fa-flag-checkered prefix white-text tooltipped"
           data-position="top"
