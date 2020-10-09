@@ -15,16 +15,16 @@
           class="validate"
           required
         />
-        <label for="query">Search Challenges</label>
+        <label for="query" class="display-none">Search Challenges</label>
       </div>
 
       <div class="col s12 m8">
         <a
           href=" {{ url_for('home', id=Null) }} "
-          class="grey btn-small reset text-shadow"
+          class="grey btn-small reset hvr-border-fade"
           >Reset</a
         >
-        <button type="submit" class="grey darken-1 btn-small search text-shadow">
+        <button type="submit" class="grey darken-1 btn-small search hvr-border-fade">
           <i class="fas fa-search"></i> Search
         </button>
       </div>

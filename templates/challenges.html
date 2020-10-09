@@ -1,8 +1,8 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="orange-text text-darken-4 center-align">All Challenges</h3>
+
 <div class="div container">
-  <div class="row card-panel transparent">
+  <div class="row card-panel no-border">
     <form action="{{ url_for('search') }} " method="post" class="form">
       <div class="row valign-wrapper center-align">
         <div class="input-field col s12 m8">
@@ -21,12 +21,12 @@
         <div class="col s12 m8">
           <a
             href=" {{ url_for('get_challenges') }} "
-            class="col grey btn-small reset text-shadow"
+            class="col grey btn-small reset hvr-border-fade"
             >Reset</a
           >
           <button
             type="submit"
-            class="col grey darken-1 btn-small search text-shadow"
+            class="col grey darken-1 btn-small search hvr-border-fade"
           >
             <i class="fas fa-search"></i> Search
           </button>
@@ -35,12 +35,12 @@
     </form>
   </div>
 </div>
-
+<h3 class="orange-text text-darken-4 center-align">All Challenges</h3>
 {% for challenge in challenges %}
 <div class="container">
   <div class="row">
     <div class="card white">
-      <div class="orange">
+      <div class="white">
         {% if challenge.activated == "false" %}
         <a
           class="card-icon fas fa-pencil-alt prefix grey-text"
@@ -74,7 +74,7 @@
         </label>
         {% if challenge.activated == "false" %}
         <a
-          class="btn activate hvr-bob white fas fa-flag-checkered prefix grey-text tooltipped"
+          class="btn activate hvr-bob fas fa-flag-checkered prefix white-text tooltipped"
           data-position="top"
           data-tooltip="Activate challenge"
           href="{{ url_for('activated_challenge', challenge_id=challenge._id) }}"
