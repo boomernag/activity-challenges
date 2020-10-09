@@ -143,6 +143,11 @@ def handle_exception(e):
     flash("Challenge does not exist")
     return render_template("challenges.html", e=e), 500
 
+@app.errorhandler(404)
+def page_not_found(error):
+    flash("Challenge does not exist")
+    return render_template('challenges.html'), 404
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
