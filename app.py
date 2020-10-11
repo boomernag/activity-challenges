@@ -27,15 +27,22 @@ def get_challenges():
 
 @app.route("/home")
 def home():
-    challenges = list(mongo.db.challenges.find({"activated": "true"}))
+    challenges = list(mongo.db.challenges.find({"activated": True}))
     return render_template("home.html", challenges=challenges)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
+@app.route("/search/challenges", methods=["GET", "POST"])
+def search_challenges():
     query = request.form.get("query")
     challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
     return render_template("challenges.html", challenges=challenges)
+
+
+@app.route("/search/home", methods=["GET", "POST"])
+def search_home():
+    query = request.form.get("query")
+    challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
+    return render_template("home.html", challenges=challenges)
 
 
 @app.route("/add_challenge", methods=["GET", "POST"])
@@ -57,6 +64,17 @@ def add_challenge():
 
 @app.route("/edit_challenge/<challenge_id>", methods=["GET", "POST"])
 def edit_challenge(challenge_id):
+    """ Edits the challenge by Id if it exists and is not activated.
+    Flashes a message on screen.
+    If request method is post and challenge is valid then saves the challenge.
+
+    Args:
+      challenge_id : An id of the challenge.
+    Returns:
+        If request method is get then renders the edit_challenge.html.
+        If challenge does not exist or challenge is activated or request
+        method is post then redirects the user to get_challenges.html.
+    """
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     if not challenge:
         flash("Challenge does not exist")
@@ -66,8 +84,7 @@ def edit_challenge(challenge_id):
         flash("Challenge cannot be edited while activated")
         return redirect(url_for("get_challenges"))
 
-    checkedTime = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
-    # checkedTime = challenge.time
+    checked_time = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     if request.method == "POST":
         submit = {
             "challenge_title": request.form.get("challenge_title"),
@@ -82,7 +99,7 @@ def edit_challenge(challenge_id):
         return redirect(url_for("get_challenges"))
 
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
-    return render_template("edit_challenge.html", value=checkedTime, challenge=challenge, times=[1, 2, 5, 10], checked=checkedTime)
+    return render_template("edit_challenge.html", value=checked_time, challenge=challenge, times=[1, 2, 5, 10], checked=checked_time)
 
 
 @app.route("/activated_challenge/<challenge_id>")
@@ -123,6 +140,12 @@ def deactivated_challenge(challenge_id):
 
 @app.route("/delete_challenge/<challenge_id>")
 def delete_challenge(challenge_id):
+    """ Deletes the challenge by Id. Flashes error message if challenge does not exists.
+    Args:
+        challenge_id : An id of the challenge.
+    Returns:
+        Redirects the user to get_challenges.
+    """
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     if not challenge:
         flash("Challenge does not exist")
@@ -134,14 +157,20 @@ def delete_challenge(challenge_id):
 
 
 @app.errorhandler(Exception)
-def handle_exception(e):
-    # pass through HTTP errors
-    if isinstance(e, HTTPException):
-        return e
+def handle_exception(exception_thrown):
+    """ Handles Http and non http execptions.
+        Also flashes error message.
+        Args:
+            exception_thrown : An exception thrown.
+        Returns:
+        Renders the challenges html.
+    """
+    if isinstance(exception_thrown, HTTPException):
+        return exception_thrown
 
-    # now you're handling non-HTTP exceptions only
     flash("Challenge does not exist")
-    return render_template("challenges.html", e=e), 500
+    return render_template("challenges.html", exception_thrown=exception_thrown), 500
+
 
 @app.errorhandler(404)
 def page_not_found(error):
