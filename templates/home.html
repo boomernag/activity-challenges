@@ -1,55 +1,58 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="orange-text text-darken-4 center-align">Home</h3>
-<div class="row card-panel transparent lighten-5">
-  <form action="{{ url_for('search_home') }} " method="post" class="form col s12">
-    <div class="row valign-wrapper center-align">
-      <div class="input-field col s12 m8">
-        <i class="fas fa-search prefix grey-text text-darken"></i>
-        <input
-          type="text"
-          class="black-text"
-          name="query"
-          minlength="3"
-          id="query"
-          class="validate"
-          required
-        />
-        <label for="query" class="display-none">Search Challenges</label>
+<div class="container">
+  <div class="card-panel">
+    <form action="{{ url_for('search_home') }} " method="post" class="form">
+      <div class="align-wrapper center-align">
+        <div class="input-field">
+          <i class="fas fa-search prefix grey-text"></i>
+          <input
+            type="text"
+            class="black-text"
+            name="query"
+            minlength="3"
+            id="query"
+            class="validate"
+            required
+          />
+          <label for="query" class="display-none">Search Challenges</label>
+        </div>
+        <div class="container">
+          <a
+            href=" {{ url_for('home', id=Null) }} "
+            class="grey btn-small reset hvr-border-fade"
+            >Reset</a
+          >
+          <button
+            type="submit"
+            class="grey darken-1 btn-small search hvr-border-fade"
+          >
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
       </div>
-
-      <div class="col s12 m8">
-        <a
-          href=" {{ url_for('home', id=Null) }} "
-          class="grey btn-small reset hvr-border-fade"
-          >Reset</a
-        >
-        <button type="submit" class="grey darken-1 btn-small search hvr-border-fade">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
-
+<h3 class="orange-text text-darken-4 center-align">Active Challenges</h3>
 {% for active_challenge in challenges %}
 <div class="container">
   <div class="row">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
+    <div class="card white">
+      <div class="card-content black-text accent-4">
         <span class="card-title"
-          ><strong>{{ active_challenge.challenge_title }}</strong></span
+          ><strong>{{ active_challenge.challenge_title|upper }}</strong></span
         >
         <p>{{ active_challenge.challenge_description }}</p>
       </div>
-      <div class="card-action">
-        <i class="timetocomplete-icon small material-icons white-text"
+      <div class="card-action grey lighten-5">
+        <i class="timetocomplete-icon small material-icons blue-grey-text"
           >access_time</i
         >
-        <label for="timetocomplete-icon" class="orange-text"
+        <label for="timetocomplete-icon" class="orange-text line-height"
           >{{ active_challenge.time }} min</label
         >
-        <i class="timetocomplete-icon small material-icons white-text"
+        <i class="timetocomplete-icon small material-icons blue-grey-text"
           >check</i
         >
         <label for="timetocomplete-icon" class="orange-text line-height"

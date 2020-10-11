@@ -36,19 +36,18 @@
           maxlength="200"
           class="materialize-textarea"
           required
-        >
-{{- challenge.challenge_description -}}</textarea
+        >{{- challenge.challenge_description -}}</textarea
         >
         <label for="challenge_description">Challenge Descripition</label>
       </div>
     </div>
     <!-- challenge time-->
-    <div class="row s12 m4">
-      <div class="col s12 m4">
+    <div class="row">
+      <div class="col s12">
         <i class="far fa-clock small prefix orange-text text-darken-4"></i>
         <label for="timetocomplete">Time to complete</label>
         {% for time in times %}
-        <div class="time">
+        <div>
           <label for="{{time}}">
             <input type="radio" id="{{time}}" name="timetocomplete"
             value="{{time}}" {% if time|string == checked.time|string
@@ -60,7 +59,6 @@
       </div>
     </div>
     <!-- submit button -->
-    <div class="">
       <div class="col s12 center-align">
         <!-- cancel button -->
         <a
@@ -69,14 +67,10 @@
         >
           Cancel <i class="fas fa-times-circle right"></i>
         </a>
-        <button
-          type="submit"
-          class="btn-small orange darken-1 text-shadoww"
-        >
+        <button type="submit" class="btn-small orange darken-1 text-shadoww">
           Edit Challenge <i class="fas fa-plus-square right"></i>
         </button>
       </div>
-    </div>
   </form>
 </div>
 

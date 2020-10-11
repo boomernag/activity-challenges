@@ -37,25 +37,34 @@
     </div>
     <!-- challenge time-->
     <div class="row">
-      <div class="row s12">
+      <div class="col s12">
         <i class="far fa-clock small prefix orange-text text-darken-4"></i>
-        <label for="timetocomplete" class="time-label">Time to complete</label>
+        <label for="timetocomplete">Time to complete</label>
         {% for time in times %}
         <label for="{{time}}">
-          <input type="radio" id="{{time}}" name="timetocomplete" value="{{time}}"/>
-          <span class="time">{{ time }} minute(s)</span>
+          <input
+            type="radio"
+            id="{{time}}"
+            name="timetocomplete"
+            value="{{time}}" required
+          />
+          <span>{{ time }} minute(s)</span>
         </label>
         {% endfor %}
       </div>
     </div>
     <!-- submit button -->
-    <div class="">
       <div class="col s12 center-align">
-        <button type="submit" class="btn-large orange darken-1 text-shaw">
+        <a
+          href="{{ url_for('get_challenges') }}"
+          class="btn grey text-shadow"
+        >
+          Cancel <i class="fas fa-times-circle right"></i>
+        </a>
+        <button type="submit" class="btn orange darken-1 text-shaw">
           Add Challenge <i class="fas fa-plus-square right"></i>
         </button>
       </div>
-    </div>
   </form>
 </div>
 

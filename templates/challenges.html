@@ -1,11 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
-
-<div class="div container">
-  <div class="row card-panel no-border">
-    <form action="{{ url_for('search_challenges') }} " method="post" class="form">
-      <div class="row valign-wrapper center-align">
-        <div class="input-field col s12 m8">
+<div class="container">
+  <div class="card-panel">
+    <form
+      action="{{ url_for('search_challenges') }} "
+      method="post"
+      class="form"
+    >
+      <div class="align-wrapper center-align">
+        <div class="input-field">
           <i class="fas fa-search prefix grey-text"></i>
           <input
             type="text"
@@ -16,17 +19,19 @@
             class="validate"
             required
           />
-          <label class="display-none" for="query">Search Challenges</label>
+          <label for="query" class="display-none"
+            >Search Active Challenges</label
+          >
         </div>
-        <div class="col s12 m8">
+        <div class="container">
           <a
             href=" {{ url_for('get_challenges') }} "
-            class="col grey btn-small reset hvr-border-fade"
+            class="grey btn-small reset hvr-border-fade"
             >Reset</a
           >
           <button
             type="submit"
-            class="col grey darken-1 btn-small search hvr-border-fade"
+            class="grey darken-1 btn-small search hvr-border-fade"
           >
             <i class="fas fa-search"></i> Search
           </button>
@@ -54,11 +59,10 @@
       </div>
       <div class="card-content black-text accent-4">
         <span class="card-title"
-          ><strong>{{ challenge.challenge_title }}</strong></span
+          ><strong>{{ challenge.challenge_title|upper }}</strong></span
         >
         <p>{{ challenge.challenge_description }}</p>
       </div>
-
       <div class="card-action grey lighten-5">
         <i class="timetocomplete-icon small material-icons blue-grey-text"
           >access_time</i
