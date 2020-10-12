@@ -73,7 +73,7 @@ Hover-effect on "activate"-button to get the feeling that it is hanging in the a
 
 ### Colours
 
-![Color Scheme] (/static/img/color_scheme.png)
+![Color Scheme](/static/img/color_scheme.png)
 - In the colour scheme, I used orange a base as it is an "active" color.
 - In the navbar and footer, I used the darkgray-ish background with letters in white, giving a nice frame for the page and also easily readible letters.
 - In the background, I kept it simple with white (after trying both dark and bright)
