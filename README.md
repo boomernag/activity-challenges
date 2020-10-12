@@ -5,7 +5,7 @@
     This website is created to be a fun and easy source of inspiration for physical movement. Users can add challenges, find challenges and activate/complete challenges.
     Challenges are supposed to be short, concise and easy to perform ranging from 1 minute to maximum of 10 minutes.
 
-#### You can access the platform [here.](https://activity-challenges.herokuapp.com/)
+#### You can access the platform [here.]<a href="https://activity-challenges.herokuapp.com//"target="_blank">activity-challenges.com</a>
 
 ## Table of Contents
 
