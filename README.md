@@ -5,7 +5,7 @@
     This website is created to be a fun and easy source of inspiration for physical movement. Users can add challenges, find challenges and activate/complete challenges.
     Challenges are supposed to be short, concise and easy to perform ranging from 1 minute to maximum of 10 minutes.
 
-#### You can access the platform [here.]<a href="https://activity-challenges.herokuapp.com//"target="_blank">activity-challenges.com</a>
+#### You can access the platform [here.] (https://activity-challenges.herokuapp.com/)
 
 ## Table of Contents
 
@@ -73,7 +73,7 @@ Hover-effect on "activate"-button to get the feeling that it is hanging in the a
 
 ### Colours
 
-<img src="https://github.com/boomernag/activity-challenges/blob/170137cdfa22204c2c7fd07d034948bcb8f86263/static/img/Color%20Scheme.png" target="_blank" rel="noopener" alt="Color Scheme">
+![Color Scheme] (/static/img/color_scheme.png)
 - In the colour scheme, I used orange a base as it is an "active" color.
 - In the navbar and footer, I used the darkgray-ish background with letters in white, giving a nice frame for the page and also easily readible letters.
 - In the background, I kept it simple with white (after trying both dark and bright)
@@ -82,15 +82,15 @@ Hover-effect on "activate"-button to get the feeling that it is hanging in the a
 
 ### Icons
 
-The icons used in this project are provided by [Font Awesome 5.12.1](https://fontawesome.com/) and [Materialize_1.0.0](https://https://materializecss.com/icons.html).
+The icons used in this project are provided by [Font Awesome 5.12.1](https://fontawesome.com/) and [Materialize 1.0.0](https://https://materializecss.com/icons.html).
 They were used for displaying: challenge time and completions, search function aswell as challenge edit- and delete buttons.
 
 ## Wireframes
 
 These wireframes were designed with Balsamiq Mockups 4.0.21
 
-- Mobile displays [here](https://github.com/boomernag/activity-challenges/blob/386fb4dbc9d9cd0f488337b1f6e026dfa13d4ca6/user_stories/Mobile.png)
-- Computer displays [here](https://github.com/boomernag/activity-challenges/blob/386fb4dbc9d9cd0f488337b1f6e026dfa13d4ca6/user_stories/Desktop.png)
+- Mobile displays ![here](https://github.com/boomernag/activity-challenges/blob/master/user_stories/Mobile.png)
+- Computer displays ![here](https://github.com/boomernag/activity-challenges/blob/master/user_stories/Desktop.png)
 
 # Features
 
@@ -167,9 +167,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 
 ## Tools
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-  - IDE used for development of this project.
-- [Balsamiq Mockups 3](https://balsamiq.com/)
+- [Balsamiq Mockups 4](https://balsamiq.com/)
   - Used to create the wireframes and planning this project.
 - [Dev Tools](https://www.google.com/chrome/)
   - This project used the Dev Tools from 3 browsers: Chrome, Firefox and Safari. They were necessary to keep track and test the code during the development.
@@ -207,6 +205,8 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 - In this project Is used **HTML5**, **CSS**, **JAVASCRIPT** and **PYTHON** as programming languages.
 
 # Testing
+
+## Faced and fixed issues
 
 - I have thorougly tested differents possibilities of breaking the code and created solutions for when it happened. 
     - One of those things were when a challenge title that didn't exist was inserted into the url search field. That was fixed by adding an errorhandler for 500 error.

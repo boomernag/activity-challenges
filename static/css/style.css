@@ -69,6 +69,7 @@ h3 {
   right: 0;
   margin-right: 10px;
 }
+
 /* Breakpoints */
 @media screen and (max-width: 680px) {
   .display-none {
