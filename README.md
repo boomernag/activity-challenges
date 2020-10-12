@@ -64,7 +64,7 @@
 
 This project was developed with an idea of keeping it simple, keeping the challenges and its content in focus.
 Bold titles for the challenges to help them stick out, a cursive title in the navbar for the page to get the "active" feeling.
-Hover-effect on "activat"-button to get the feeling that it is hanging in the air and when user clicks it is showtime.
+Hover-effect on "activate"-button to get the feeling that it is hanging in the air and when user clicks it is showtime.
 
 ### Typography
 
@@ -87,11 +87,10 @@ They were used for displaying: challenge time and completions, search function a
 
 ## Wireframes
 
-These wireframes were designed with Balsamiq Mockups 3. These were the first version of scope and some minor things have changed during the development for the final version.
+These wireframes were designed with Balsamiq Mockups 4.0.21
 
-- Mobile displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_mobile.png)
-- Medium displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_tablet.png)
-- Large displays [here](https://raw.githubusercontent.com/rodrigoneumann/third-milestone-project/master/semgmtapp/wireframes/wireframe_desktop.png)
+- Mobile displays [here](https://github.com/boomernag/activity-challenges/blob/386fb4dbc9d9cd0f488337b1f6e026dfa13d4ca6/user_stories/Mobile.png)
+- Computer displays [here](https://github.com/boomernag/activity-challenges/blob/386fb4dbc9d9cd0f488337b1f6e026dfa13d4ca6/user_stories/Desktop.png)
 
 # Features
 

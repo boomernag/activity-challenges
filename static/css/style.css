@@ -38,7 +38,7 @@ h3 {
   size: 30px;
 }
 
-a.brand-logo {
+.logo {
   font-style: oblique;
   margin-left: 10px;
 }
@@ -46,7 +46,6 @@ a.brand-logo {
 .card-title {
   font-family: "Roboto Condensed", sans-serif;
 }
-
 
 /* Icons on challenge card for edit and delete */
 .fa-pencil-alt:before {
@@ -72,8 +71,8 @@ a.brand-logo {
 }
 /* Breakpoints */
 @media screen and (max-width: 680px) {
-  a.brand-logo {
-    font-size: 15px;
+  .display-none {
+    display: none;
   }
 }
 

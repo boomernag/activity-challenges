@@ -21,18 +21,36 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_challenges")
 def get_challenges():
+    """ Displays all challenges.
+    Args:
+      Find : see if challenge is in database, if so - display on page.
+    Returns:
+        Renders template for challenges with results from argument.
+    """
     challenges = mongo.db.challenges.find()
     return render_template("challenges.html", challenges=challenges)
 
 
 @app.route("/home")
 def home():
+    """ Displays activated challenges.
+    Args:
+      Activated : see if challenge has value True.
+    Returns:
+        Renders template for home with results from argument.
+    """
     challenges = list(mongo.db.challenges.find({"activated": True}))
     return render_template("home.html", challenges=challenges)
 
 
 @app.route("/search/challenges", methods=["GET", "POST"])
 def search_challenges():
+    """ Searches by text - title and description - the database and displays results of all challenges.
+    Args:
+      query : A string of text.
+    Returns:
+        Renders template for home with results from search.
+    """
     query = request.form.get("query")
     challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
     return render_template("challenges.html", challenges=challenges)
@@ -40,6 +58,12 @@ def search_challenges():
 
 @app.route("/search/home", methods=["GET", "POST"])
 def search_home():
+    """ Searches by text - title and description - the database and displays results of activated challenges that are retrieved at home page.
+    Args:
+      query : A string of text.
+    Returns:
+        Renders template for home with results from search.
+    """
     query = request.form.get("query")
     challenges = list(mongo.db.challenges.find({"$text": {"$search": query}}))
     return render_template("home.html", challenges=challenges)
@@ -47,6 +71,17 @@ def search_home():
 
 @app.route("/add_challenge", methods=["GET", "POST"])
 def add_challenge():
+    """ Edits the challenge by Id if it exists and is not activated.
+    Flashes a message on screen.
+    If request method is post and challenge is valid then saves the challenge.
+
+    Args:
+      challenge_id : An id of the challenge.
+    Returns:
+        If request method is get then renders the edit_challenge.html.
+        If challenge does not exist or challenge is activated or request
+        method is post then redirects the user to get_challenges.html.
+    """
     if request.method == "POST":
         challenge = {
             "challenge_title": request.form.get("challenge_title"),
@@ -104,6 +139,12 @@ def edit_challenge(challenge_id):
 
 @app.route("/activated_challenge/<challenge_id>")
 def activated_challenge(challenge_id):
+    """ Activates the challenge by Id. Flashes error message that challenge is activated.
+    Args:
+        challenge_id : An id of the challenge.
+    Returns:
+        Redirects the user to get_challenges.
+    """
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
 
     submit = {
@@ -121,6 +162,12 @@ def activated_challenge(challenge_id):
 
 @app.route("/deactivated_challenge/<challenge_id>")
 def deactivated_challenge(challenge_id):
+    """ Deactivates / completes the challenge by Id. Flashes error message that challenge is completed. Adds value 1 to database of completions.
+    Args:
+        challenge_id : An id of the challenge.
+    Returns:
+        Redirects the user to get_challenges.
+    """
     challenge = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
     completions_count = challenge["completions"]
     completions_count += 1
@@ -174,6 +221,13 @@ def handle_exception(exception_thrown):
 
 @app.errorhandler(404)
 def page_not_found(error):
+    """ Handles 404 errors where page cannot be found.
+        Also flashes error message.
+        Args:
+            error : An exception thrown.
+        Returns:
+        Renders the challenges html.
+    """
     flash("Challenge does not exist")
     return render_template('challenges.html'), 404
 
