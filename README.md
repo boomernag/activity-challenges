@@ -96,7 +96,7 @@ These wireframes were designed with Balsamiq Mockups 4.0.21
 
 ### Base
 
-All pages have the navigation bar with the logo and all visible links and footer.
+All pages have the same navigation bar with the logo with links and all pages has the same footer.
 
 **Landing page**
 ![Landing Page](/static/img/landing_page.png)
@@ -307,10 +307,8 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - If user clicks the trash-can-icon the challenge will be deleted and a flash message displays on top of page - atm "Challenge Successfully Deleted"
     - The bottom third of the card is a section with a greyish color which includes an clock-icon, a number and written "min" and a complete/check icon, a number and written "times".
     - If challenge is not activated user will, at the far right of the greyish section (bottom right of the card) see a green button with a flag-icon. 
-        - If user hovers over the button it will trigger an effect that makes the button "float" and a tooltip will occur saying "Activate challenge".
         - If user clicks the button the challenge will be activated, pen and trash-can icons will dissepear and the green button will be changed to a red button with a stop sign icon.
             - Also a flash message will occur on top of screen with message "Challenge activated". Flash messages goes away automatically after 3 seconds.
-        - Same hover effect on red button and on the green button but with a tooltip above saying "Complete challenge".
         - If user clicks the red button the card will go back to the previous state of not being activated.
             - Also a flash message will occur on top of screen with text "Challenge Completed"
 
