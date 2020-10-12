@@ -47,6 +47,10 @@ h3 {
   font-family: "Roboto Condensed", sans-serif;
 }
 
+.margin-top {
+  margin-top: 5%;
+}
+
 /* Icons on challenge card for edit and delete */
 .fa-pencil-alt:before {
   position: absolute;
@@ -69,13 +73,7 @@ h3 {
   right: 0;
   margin-right: 10px;
 }
-
-/* Breakpoints */
-@media screen and (max-width: 680px) {
-  .display-none {
-    display: none;
-  }
-}
+ß
 
 /* - Button hover effect - */
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="card-panel">
+  <div class="margin-top">
     <form
       action="{{ url_for('search_challenges') }} "
       method="post"
@@ -19,9 +19,7 @@
             class="validate"
             required
           />
-          <label for="query" class="display-none"
-            >Search</label
-          >
+          <label for="query">Search</label>
         </div>
         <div class="container">
           <a
@@ -64,13 +62,17 @@
         <p>{{ challenge.challenge_description }}</p>
       </div>
       <div class="card-action grey lighten-5">
-        <i id="time-to-complete" class="timetocomplete-icon small material-icons blue-grey-text"
+        <i
+          id="time-to-complete"
+          class="timetocomplete-icon small material-icons blue-grey-text"
           >access_time</i
         >
         <label for="time-to-complete" class="orange-text line-height"
           >{{ challenge.time }} min</label
         >
-        <i id="completions" class="timetocomplete-icon small material-icons blue-grey-text"
+        <i
+          id="completions"
+          class="timetocomplete-icon small material-icons blue-grey-text"
           >check</i
         >
         <label for="completions" class="orange-text line-height"

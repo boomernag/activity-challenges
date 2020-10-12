@@ -12,7 +12,7 @@
           id="challenge_title"
           name="challenge_title"
           minlength="5"
-          maxlength="50"
+          maxlength="30"
           type="text"
           class="validate"
           required
@@ -27,8 +27,8 @@
         <textarea
           id="challenge_description"
           name="challenge_description"
-          minlength="5"
-          maxlength="200"
+          minlength="10"
+          maxlength="150"
           class="materialize-textarea"
           required
         ></textarea>
@@ -58,10 +58,7 @@
     </div>
     <!-- submit and cancel button -->
     <div class="col s12 center-align">
-      <a 
-      href="{{ url_for('get_challenges') }}" 
-      class="btn grey text-shadow"
-      >
+      <a href="{{ url_for('get_challenges') }}" class="btn grey text-shadow">
         Cancel <i class="fas fa-times-circle right"></i>
       </a>
       <button type="submit" class="btn orange darken-1 text-shaw">

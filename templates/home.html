@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="card-panel">
+  <div class="margin-top">
     <form action="{{ url_for('search_home') }} " method="post" class="form">
       <div class="align-wrapper center-align">
         <div class="input-field">
@@ -15,7 +15,7 @@
             class="validate"
             required
           />
-          <label for="query" class="display-none">Search</label>
+          <label for="query">Search</label>
         </div>
         <div class="container">
           <a

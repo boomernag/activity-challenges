@@ -1,7 +1,4 @@
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/418d8596204ea5db894208500ffabe5b7d89b9a3/static/img/Landing%20Page%20%28all%20devices%29.png" target="_blank" rel="noopener" alt="Activity Challenges">
-<h2>Activity Challenges</h2>
-</div>
+![Landing Page](/static/img/landing_page.png)
     This website is created to be a fun and easy source of inspiration for physical movement. Users can add challenges, find challenges and activate/complete challenges.
     Challenges are supposed to be short, concise and easy to perform ranging from 1 minute to maximum of 10 minutes.
 
@@ -89,8 +86,8 @@ They were used for displaying: challenge time and completions, search function a
 
 These wireframes were designed with Balsamiq Mockups 4.0.21
 
-- Mobile displays ![here](https://github.com/boomernag/activity-challenges/blob/master/user_stories/Mobile.png)
-- Computer displays ![here](https://github.com/boomernag/activity-challenges/blob/master/user_stories/Desktop.png)
+- Mobile displays ![Here](/user_stories/Mobile.png)
+- Computer displays ![Here](/user_stories/Desktop.png)
 
 # Features
 
@@ -101,17 +98,12 @@ These wireframes were designed with Balsamiq Mockups 4.0.21
 All pages have the navigation bar with the logo and all visible links and footer.
 
 - **Landing page**
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/170137cdfa22204c2c7fd07d034948bcb8f86263/static/img/Landing%20Page%20%28all%20devices%29.png" target="_blank" rel="noopener" alt="Landing paage (all devices)">
-</div>
-
+![Landing Page](/static/img/landing_page.png)
 The page does not have a login functionality, which is set for future feature. So for now if a challenge is activated, it is active for everyone. Same goes for deactivating/completing a challenge.
 
 ### Add a challenge
 
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/170137cdfa22204c2c7fd07d034948bcb8f86263/static/img/Add%20Challenge%20%28all%20devices%29.png" target="_blank" rel="noopener" width="400" alt="Add Challenge (add devices)>
-</div>
+![Add a challenge](/static/img/add_challenge.png)
 
 **CRUD - CREATE**
 When entering the "Add Challenge" page user is provided three(3) inputs - [Title, Description and Time].
@@ -119,9 +111,7 @@ It is required to provide a title and description of minimum five(5) letters eac
 
 ### Activated Challenges
 
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/25e19967e1a3c888cce5425a2f0d94398436ca72/static/img/Activated%20Challenges%20%28Home%29%20%28all%20devices%29.png" target="_blank" rel="noopener" width="400" alt="Active Challenges (all devices)">
-</div>
+![Activated challenges](/static/img/activated_challenges.png)
 
 **CRUD - READ**
 User can easily see which challenges that are activated by going to "Home" button in navbar. As mentioned, future feature is that activated challenges will be personal.
@@ -129,9 +119,7 @@ User can also search for challenge by title or description.
 
 ### Edit challenge
 
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/25e19967e1a3c888cce5425a2f0d94398436ca72/static/img/Update%20Challenge%20%28all%20devices%29.png" target="_blank" rel="noopener" width="400" alt="Edit Challenge (all devices)">
-</div>
+![Edit challenge](/static/img/edit_challenge.png)
 
 **CRUD - UPDATE**
 When a challenge is not activated it is possible to be edited. User will then face the current information when enter that challenge edit page.
@@ -139,9 +127,7 @@ If changing, the information will be overwritten by the new input and also the c
 
 ### Delete Challenge
 
-<div align="center">
-<img src="https://github.com/boomernag/activity-challenges/blob/25e19967e1a3c888cce5425a2f0d94398436ca72/static/img/Delete%20Challenge.gif" target="_blank" rel="noopener" width="450" alt="Delete Challenge (gif)">
-</div>
+![Delete challenge](/static/img/delete_challenge.gif)
 
 **CRUD - DELETE**
 When clicking the delete button the challenge will be deleted. Atm there is no validation or confirmation when the button is clicked but it is a future feature.
@@ -162,6 +148,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
     - Possiblity to add other users as "friends" and see their feed.
     - Create a group of friends that can be included in a cluster of challenges, so when the cluster starts it starts for every one who is part of that group.
     - Add media to challenges to visually describe how the challenge is supposed to be performed.
+    - Confirmation/Validation message when user wants to delete challenge.
 
 # Technologies Used
 
@@ -205,6 +192,169 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 - In this project Is used **HTML5**, **CSS**, **JAVASCRIPT** and **PYTHON** as programming languages.
 
 # Testing
+
+## Test Cases
+
+### Desktop
+
+#### Landing page (Challenges)
+
+- When at landing page user will see Home, Challenges and New Challenge in navbar to the right and the logo to the left.
+    - If user clicks Home, user will be redirected to home page.
+    - If user clicks Challenges, user will reload current page.
+    - If user clicks New Challenge, user will be redirected to Add Challenge page.
+- Below navbar user will see a search field with icon to the left and label for search on the line and below the search field two buttons, one for reset and one for search.
+    - If user clicks on the line user will be allowed to type.
+    - If user clicks on reset button, page will reload.
+    - If user clicks search button without adding information or adding less than (3) characters, message will occur that information is needed to be added in the search field.
+    - If user clicks search button with (3) characters or more added to search field, page will load with search results.
+        - If there are no search results user will see the page without any challenges.
+- Below "search" user sees the descriptive title for the page which atm is "All Challenges".
+- Below page title user finds challenges stacked as cards.
+    - Each challenge has a title and description in middle-left. 
+    - In top-right corner a pen-icon for edit and trash can-icon for delete. 
+        - If user clicks the pen-icon it will load the edit page for that challenge.
+        - If user clicks the trash-can-icon the challenge will be deleted and a flash message displays on top of page - atm "Challenge Successfully Deleted"
+    - The bottom third of the card is a section with a greyish color which includes an clock-icon, a number and written "min" and a complete/check icon, a number and written "times".
+    - If challenge is not activated user will, at the far right of the greyish section (bottom right of the card) see a green button with a flag-icon. 
+        - If user hovers over the button it will trigger an effect that makes the button "float" and a tooltip will occur saying "Activate challenge".
+        - If user clicks the button the challenge will be activated, pen and trash-can icons will dissepear and the green button will be changed to a red button with a stop sign icon.
+            - Also a flash message will occur on top of screen with message "Challenge activated". Flash messages goes away automatically after 3 seconds.
+        - Same hover effect on red button and on the green button but with a tooltip above saying "Complete challenge".
+        - If user clicks the red button the card will go back to the previous state of not being activated.
+            - Also a flash message will occur on top of screen with text "Challenge Completed"
+- At the bottom of page user finds a footer with copyright text located to the left.
+
+![Landing Page](/static/img/screenshots_desktop/landing_page(screenshot).png)
+
+#### Home
+
+- This page looks and functions the same as landing page (challenges).
+    - Difference between the two is that home only displays and does search on activated challenges.
+        - If user clicks red button to complete challenge user will be redirected to landing pages (challenges).
+            - Also flash message will occur on top of page with the message of completing a challenge.
+
+![Home](/static/img/screenshots_desktop/home(screenshot).png)
+
+#### New Challenge
+
+- When at this page user will see navbar with logo to left, Home, Challenges and New challenge to right - same as all other pages.
+- User will see page title "Add challenge" on top of page under navbar.
+- Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
+    - A pen with an input field to the right of it with label "Challenge Title".
+        - Here user can input a title for the challenge (min 5 and max 30 characters).
+    - Three lines with input field to the right of it with label "Challenge Description".
+        - Here user can input a description for the challenge (min 10 and max 150 characters).
+    - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
+        - Here user chooses a radio button to declare how long time the challenge is to be perfomed.
+- Below the user find two buttons - centered - saying "cancel" with a circle and cross-icon and "add challenge" with square and plus-icon.
+
+![Add challenge](/static/img/screenshots_desktop/add_challenge(screenshot).png)
+
+#### Edit Challenge
+
+- When at this page user will see navbar with logo to left, Home, Challenges and New challenge to right - same as all other pages.
+- User will see page title "Edit challenge" on top of page under navbar.
+- Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
+    - A pen with an input field to the right of it with label "Challenge Title".
+        - Here user can change the title for the challenge (min 5 and max 30 characters).
+    - Three lines with input field to the right of it with label "Challenge Description".
+        - Here user can change the description for the challenge (min 10 and max 150 characters).
+    - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
+        - Here user can keep or re-choose a radio button to declare how long time the challenge is to be perfomed.
+- Below the user find two buttons - centered - saying "cancel" with a circle and cross-icon and "edit challenge" with square and plus-icon.
+    - If user clicks edit button the amount of completions for the challenge will be reset to 0.
+        - This is because there is a possiblilty that the challenge is changed in the way that it can't be seen as the same challenge.
+        - User is redirected to challenges pages.
+        - Also flash message is displayed on top of screen with text "Challenge Successfully Updated".
+
+![Edit challenge](/static/img/screenshots_desktop/edit_challenge(screenshot).png)
+
+### Mobile
+
+#### Landing page (Challenges)
+
+- When at landing page user will see three lines-icon to the right in navbar.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
+        - If user clicks Home, user will be redirected to home page.
+        - If user clicks Challenges, user will reload current page.
+        - If user clicks New Challenge, user will be redirected to Add Challenge page.
+- Below navbar user will see a search field with icon to the left and label for search on the line and below the search field two buttons, one for reset and one for search.
+    - If user clicks on the line user will be allowed to type.
+    - If user clicks on reset button, page will reload.
+    - If user clicks search button without adding information or adding less than (3) characters,message will occur that information is needed to be added in the search field.
+    - If user clicks search button with (3) characters or more added to search field, page will load with search results.
+        - If there are no search results user will see the page without any challenges.
+- Below "search" user sees the descriptive title for the page which atm is "All Challenges".
+- Below page title user finds challenges stacked as cards.
+    - Each challenge has a title and description in middle-left. 
+    - In top-right corner a pen-icon for edit and trash can-icon for delete. 
+        - If user clicks the pen-icon it will load the edit page for that challenge.
+        - If user clicks the trash-can-icon the challenge will be deleted and a flash message displays on top of page - atm "Challenge Successfully Deleted"
+    - The bottom third of the card is a section with a greyish color which includes an clock-icon, a number and written "min" and a complete/check icon, a number and written "times".
+    - If challenge is not activated user will, at the far right of the greyish section (bottom right of the card) see a green button with a flag-icon. 
+        - If user hovers over the button it will trigger an effect that makes the button "float" and a tooltip will occur saying "Activate challenge".
+        - If user clicks the button the challenge will be activated, pen and trash-can icons will dissepear and the green button will be changed to a red button with a stop sign icon.
+            - Also a flash message will occur on top of screen with message "Challenge activated". Flash messages goes away automatically after 3 seconds.
+        - Same hover effect on red button and on the green button but with a tooltip above saying "Complete challenge".
+        - If user clicks the red button the card will go back to the previous state of not being activated.
+            - Also a flash message will occur on top of screen with text "Challenge Completed"
+- At the bottom of page user finds a footer with copyright text located to the left.
+
+![Landing Page](/static/img/screenshots_mobile/landing_page(screenshot).png)
+
+#### Home
+
+- This page looks and functions the same as landing page (challenges) but page title is "Active Challenges".
+    - Difference between the two is that home only displays and does search on activated challenges.
+        - If user clicks red button on a challenge to complete challenge user will be redirected to landing pages (challenges).
+            - Also flash message will occur on top of page with the message of completing a challenge.
+
+![Home](/static/img/screenshots_mobile/home(screenshot).png)
+
+#### New Challenge
+
+- When at landing page user will see three lines-icon to the right in navbar.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
+        - If user clicks Home, user will be redirected to home page.
+        - If user clicks Challenges, user will reload current page.
+        - If user clicks New Challenge, user will be redirected to Add Challenge page.- User will see page title "Add challenge" on top of page under navbar.
+- Below navbar user sees page title "Add challenge".
+- Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
+    - A pen with an input field to the right of it with label "Challenge Title".
+        - Here user can input a title for the challenge (min 5 and max 30 characters).
+    - Three lines with input field to the right of it with label "Challenge Description".
+        - Here user can input a description for the challenge (min 10 and max 150 characters).
+    - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
+        - Here user chooses a radio button to declare how long time the challenge is to be perfomed.
+- Below the user find two buttons - centered on top of eachother - saying "cancel" with a circle and cross-icon and "add challenge" with square and plus-icon.
+    - If user clicks cancel user is redirected to challenges page.
+    - If user clicks add challenge user is redirected to challengges page and flash message is displayed "Challenge Successfully Added".
+
+![Add challenge](/static/img/screenshots_mobile/add_challenge(screenshot).png)
+
+#### Edit Challenge
+
+- When at landing page user will see three lines-icon to the right in navbar.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
+        - If user clicks Home, user will be redirected to home page.
+        - If user clicks Challenges, user will reload current page.
+        - If user clicks New Challenge, user will be redirected to Add Challenge page.- User will see page title "Edit challenge" on top of page under navbar.
+- Below navbar user sees page title "Edit challenge".
+- Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
+    - A pen with an input field to the right of it with label "Challenge Title".
+        - Here user can change the title for the challenge (min 5 and max 30 characters).
+    - Three lines with input field to the right of it with label "Challenge Description".
+        - Here user can change the description for the challenge (min 10 and max 150 characters).
+    - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
+        - Here user can keep or re-choose a radio button to declare how long time the challenge is to be perfomed.
+- Below the user sees two buttons - centered on top of eachother - saying "cancel" with a circle and cross-icon and "edit challenge" with square and plus-icon.
+    - If user clicks edit button the amount of completions for the challenge will be reset to 0.
+        - This is because there is a possiblilty that the challenge is changed in the way that it can't be seen as the same challenge.
+        - User is redirected to challenges pages.
+            - Also flash message is displayed on top of screen with text "Challenge Successfully Updated".
+
+![Edit challenge](/static/img/screenshots_mobile/edit_challenge(screenshot).png)
 
 ## Faced and fixed issues
 

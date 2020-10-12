@@ -91,7 +91,7 @@ def add_challenge():
             "completions": 0,
         }
         mongo.db.challenges.insert_one(challenge)
-        flash("Task Successully Added")
+        flash("Challenge Successully Added")
         return redirect(url_for("get_challenges"))
 
     return render_template("add_challenge.html", times=[1, 2, 5, 10])
@@ -119,7 +119,8 @@ def edit_challenge(challenge_id):
         flash("Challenge cannot be edited while activated")
         return redirect(url_for("get_challenges"))
 
-    checked_time = mongo.db.challenges.find_one({"_id": ObjectId(challenge_id)})
+    checked_time = mongo.db.challenges.find_one(
+        {"_id": ObjectId(challenge_id)})
     if request.method == "POST":
         submit = {
             "challenge_title": request.form.get("challenge_title"),
