@@ -1,13 +1,11 @@
 <div align="center">
-<img src="https://github.com/rodrigoneumann/third-milestone-project/raw/master/semgmtapp/static/img/readme-img.png" target="_blank" rel="noopener" alt="Swift Estates">
-<h2>Swift Estates Property Management</h2>
+<img src="https://github.com/boomernag/activity-challenges/blob/418d8596204ea5db894208500ffabe5b7d89b9a3/static/img/Landing%20Page%20%28all%20devices%29.png" target="_blank" rel="noopener" alt="Activity Challenges">
+<h2>Activity Challenges</h2>
 </div>
+    This website is created to be a fun and easy source of inspiration for physical movement. Users can add challenges, find challenges and activate/complete challenges.
+    Challenges are supposed to be short, concise and easy to perform ranging from 1 minute to maximum of 10 minutes.
 
-This property management platform was designed with the main purpose of being a tool that allows the easy management and visualization of properties for agents of a real estate agency in the Portsmouth-Uk and nearby locations.
-On the platform, the registered agent will be able to add, edit and delete the properties that have been added by him and will be able to view all the properties added by other agents, whether for sale or rent. Which greatly facilitates the real estate agency's internal work.
-It is also possible for the agent to manage their profile on the platform, such as changing their password, changing their photo or even deleting their registration.
-
-#### You can access the platform [here.](https://swift-estates.herokuapp.com)
+#### You can access the platform [here.](https://activity-challenges.herokuapp.com/)
 
 ## Table of Contents
 
