@@ -20,7 +20,7 @@
             required
           />
           <label for="query" class="display-none"
-            >Search Active Challenges</label
+            >Search</label
           >
         </div>
         <div class="container">
@@ -64,17 +64,17 @@
         <p>{{ challenge.challenge_description }}</p>
       </div>
       <div class="card-action grey lighten-5">
-        <i class="timetocomplete-icon small material-icons blue-grey-text"
+        <i id="time-to-complete" class="timetocomplete-icon small material-icons blue-grey-text"
           >access_time</i
         >
-        <label for="timetocomplete-icon" class="orange-text line-height"
+        <label for="time-to-complete" class="orange-text line-height"
           >{{ challenge.time }} min</label
         >
-        <i class="timetocomplete-icon small material-icons blue-grey-text"
+        <i id="completions" class="timetocomplete-icon small material-icons blue-grey-text"
           >check</i
         >
-        <label for="timetocomplete-icon" class="orange-text line-height"
-          >{{ challenge.completions }}
+        <label for="completions" class="orange-text line-height"
+          >{{ challenge.completions }} times
         </label>
         {% if challenge.activated == False %}
         <a

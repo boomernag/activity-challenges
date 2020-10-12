@@ -2,7 +2,7 @@
 
 <h3 class="orange-text text-darken-4 center-align">Add Challenge</h3>
 
-<div class="row card-panel transparent lighten-5">
+<div class="row card-panel grey lighten-5">
   <form class="col s12" method="POST" action="{{ url_for('add_challenge') }}">
     <!-- challenge title-->
     <div class="row">
@@ -41,30 +41,33 @@
         <i class="far fa-clock small prefix orange-text text-darken-4"></i>
         <label for="timetocomplete">Time to complete</label>
         {% for time in times %}
-        <label for="{{time}}">
-          <input
-            type="radio"
-            id="{{time}}"
-            name="timetocomplete"
-            value="{{time}}" required
-          />
-          <span>{{ time }} minute(s)</span>
-        </label>
+        <div>
+          <label for="{{time}}">
+            <input
+              type="radio"
+              id="{{time}}"
+              name="timetocomplete"
+              value="{{time}}"
+              required
+            />
+            <span>{{ time }} minute(s)</span>
+          </label>
+        </div>
         {% endfor %}
       </div>
     </div>
-    <!-- submit button -->
-      <div class="col s12 center-align">
-        <a
-          href="{{ url_for('get_challenges') }}"
-          class="btn grey text-shadow"
-        >
-          Cancel <i class="fas fa-times-circle right"></i>
-        </a>
-        <button type="submit" class="btn orange darken-1 text-shaw">
-          Add Challenge <i class="fas fa-plus-square right"></i>
-        </button>
-      </div>
+    <!-- submit and cancel button -->
+    <div class="col s12 center-align">
+      <a 
+      href="{{ url_for('get_challenges') }}" 
+      class="btn grey text-shadow"
+      >
+        Cancel <i class="fas fa-times-circle right"></i>
+      </a>
+      <button type="submit" class="btn orange darken-1 text-shaw">
+        Add Challenge <i class="fas fa-plus-square right"></i>
+      </button>
+    </div>
   </form>
 </div>
 

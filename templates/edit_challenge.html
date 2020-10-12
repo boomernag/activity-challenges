@@ -49,18 +49,21 @@
         {% for time in times %}
         <div>
           <label for="{{time}}">
-            <input type="radio" id="{{time}}" name="timetocomplete"
+            <input 
+            type="radio" 
+            id="{{time}}" 
+            name="timetocomplete"
             value="{{time}}" {% if time|string == checked.time|string
-            %}checked{% endif %} />
+            %}checked{% endif %} 
+            />
             <span>{{ time }} minute(s)</span>
           </label>
         </div>
         {% endfor %}
       </div>
     </div>
-    <!-- submit button -->
+    <!-- submit and cancel button -->
       <div class="col s12 center-align">
-        <!-- cancel button -->
         <a
           href="{{ url_for('get_challenges') }}"
           class="btn-small grey text-shadow"
