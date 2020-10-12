@@ -2,7 +2,7 @@
     This website is created to be a fun and easy source of inspiration for physical movement. Users can add challenges, find challenges and activate/complete challenges.
     Challenges are supposed to be short, concise and easy to perform ranging from 1 minute to maximum of 10 minutes.
 
-#### You can access the platform [here.] (https://activity-challenges.herokuapp.com/)
+#### You can access the platform [Here](https://activity-challenges.herokuapp.com/)
 
 ## Table of Contents
 
@@ -53,8 +53,8 @@
 - Create a challenge.
 - Edit a challenge.
 - Delete a challenge.
-- See activated challenge.
-- See how long time a challenge is supposed to need to be completed.
+- See activated challenges.
+- See how long time a challenge is supposed to need to be performed.
 - See how many times a challenge has been completed.
 
 ## Design
@@ -67,6 +67,7 @@ Hover-effect on "activate"-button to get the feeling that it is hanging in the a
 
 - The body font used is **Roboto**. Good readability and working well on smaller screens.
 - The "Challenges"-title is a condensed version of **Roboto**. It keeps the feeling of simplicity while helping the tile be caught by the eye.
+- Page title is **Staaliche** which suits well with **Roboto** in my opinion and also fits as a font for the page title.
 
 ### Colours
 
@@ -97,7 +98,7 @@ These wireframes were designed with Balsamiq Mockups 4.0.21
 
 All pages have the navigation bar with the logo and all visible links and footer.
 
-- **Landing page**
+**Landing page**
 ![Landing Page](/static/img/landing_page.png)
 The page does not have a login functionality, which is set for future feature. So for now if a challenge is activated, it is active for everyone. Same goes for deactivating/completing a challenge.
 
@@ -109,7 +110,7 @@ The page does not have a login functionality, which is set for future feature. S
 When entering the "Add Challenge" page user is provided three(3) inputs - [Title, Description and Time].
 It is required to provide a title and description of minimum five(5) letters each aswell as choosing a time alternative.
 
-### Activated Challenges
+### Active Challenges
 
 ![Activated challenges](/static/img/activated_challenges.png)
 
@@ -157,7 +158,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 - [Balsamiq Mockups 4](https://balsamiq.com/)
   - Used to create the wireframes and planning this project.
 - [Dev Tools](https://www.google.com/chrome/)
-  - This project used the Dev Tools from 3 browsers: Chrome, Firefox and Safari. They were necessary to keep track and test the code during the development.
+  - This project used the Dev Tools from Chrome. It was necessary to keep track and test the code during the development.
 - [Heroku](https://www.heroku.com)
   - Used for app hosting and deploying.
 - [GitHub](https://github.com/)
@@ -199,17 +200,20 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 
 #### Landing page (Challenges)
 
-- When at landing page user will see Home, Challenges and New Challenge in navbar to the right and the logo to the left.
-    - If user clicks Home, user will be redirected to home page.
-    - If user clicks Challenges, user will reload current page.
-    - If user clicks New Challenge, user will be redirected to Add Challenge page.
+- When at landing page user will see **Home**, **Challenges** and **New Challenge** in navbar to the right and the logo to the left.
+    - If user clicks **Home**, user will be redirected to home page.
+    - If user clicks **Challenges**, user will reload current page.
+    - If user clicks **New Challenge**, user will be redirected to **Add Challenge**.
+
 - Below navbar user will see a search field with icon to the left and label for search on the line and below the search field two buttons, one for reset and one for search.
     - If user clicks on the line user will be allowed to type.
     - If user clicks on reset button, page will reload.
     - If user clicks search button without adding information or adding less than (3) characters, message will occur that information is needed to be added in the search field.
     - If user clicks search button with (3) characters or more added to search field, page will load with search results.
         - If there are no search results user will see the page without any challenges.
+
 - Below "search" user sees the descriptive title for the page which atm is "All Challenges".
+
 - Below page title user finds challenges stacked as cards.
     - Each challenge has a title and description in middle-left. 
     - In top-right corner a pen-icon for edit and trash can-icon for delete. 
@@ -223,6 +227,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Same hover effect on red button and on the green button but with a tooltip above saying "Complete challenge".
         - If user clicks the red button the card will go back to the previous state of not being activated.
             - Also a flash message will occur on top of screen with text "Challenge Completed"
+
 - At the bottom of page user finds a footer with copyright text located to the left.
 
 ![Landing Page](/static/img/screenshots_desktop/landing_page(screenshot).png)
@@ -238,8 +243,10 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 
 #### New Challenge
 
-- When at this page user will see navbar with logo to left, Home, Challenges and New challenge to right - same as all other pages.
+- When at this page user will see navbar with logo to left, **Home**, **Challenges** and **New challenge** to right - same as all other pages.
+
 - User will see page title "Add challenge" on top of page under navbar.
+
 - Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
     - A pen with an input field to the right of it with label "Challenge Title".
         - Here user can input a title for the challenge (min 5 and max 30 characters).
@@ -247,6 +254,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Here user can input a description for the challenge (min 10 and max 150 characters).
     - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
         - Here user chooses a radio button to declare how long time the challenge is to be perfomed.
+
 - Below the user find two buttons - centered - saying "cancel" with a circle and cross-icon and "add challenge" with square and plus-icon.
 
 ![Add challenge](/static/img/screenshots_desktop/add_challenge(screenshot).png)
@@ -254,7 +262,9 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 #### Edit Challenge
 
 - When at this page user will see navbar with logo to left, Home, Challenges and New challenge to right - same as all other pages.
+
 - User will see page title "Edit challenge" on top of page under navbar.
+
 - Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
     - A pen with an input field to the right of it with label "Challenge Title".
         - Here user can change the title for the challenge (min 5 and max 30 characters).
@@ -262,6 +272,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Here user can change the description for the challenge (min 10 and max 150 characters).
     - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
         - Here user can keep or re-choose a radio button to declare how long time the challenge is to be perfomed.
+
 - Below the user find two buttons - centered - saying "cancel" with a circle and cross-icon and "edit challenge" with square and plus-icon.
     - If user clicks edit button the amount of completions for the challenge will be reset to 0.
         - This is because there is a possiblilty that the challenge is changed in the way that it can't be seen as the same challenge.
@@ -275,17 +286,20 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 #### Landing page (Challenges)
 
 - When at landing page user will see three lines-icon to the right in navbar.
-    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
-        - If user clicks Home, user will be redirected to home page.
-        - If user clicks Challenges, user will reload current page.
-        - If user clicks New Challenge, user will be redirected to Add Challenge page.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names **Home**, **Challenges** and **New Challenge**.
+        - If user clicks **Home**, user will be redirected to home page.
+        - If user clicks **Challenges**, user will reload current page.
+        - If user clicks **New Challenge**, user will be redirected to **Add Challenge**.
+
 - Below navbar user will see a search field with icon to the left and label for search on the line and below the search field two buttons, one for reset and one for search.
     - If user clicks on the line user will be allowed to type.
     - If user clicks on reset button, page will reload.
     - If user clicks search button without adding information or adding less than (3) characters,message will occur that information is needed to be added in the search field.
     - If user clicks search button with (3) characters or more added to search field, page will load with search results.
         - If there are no search results user will see the page without any challenges.
+
 - Below "search" user sees the descriptive title for the page which atm is "All Challenges".
+
 - Below page title user finds challenges stacked as cards.
     - Each challenge has a title and description in middle-left. 
     - In top-right corner a pen-icon for edit and trash can-icon for delete. 
@@ -299,15 +313,16 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Same hover effect on red button and on the green button but with a tooltip above saying "Complete challenge".
         - If user clicks the red button the card will go back to the previous state of not being activated.
             - Also a flash message will occur on top of screen with text "Challenge Completed"
+
 - At the bottom of page user finds a footer with copyright text located to the left.
 
 ![Landing Page](/static/img/screenshots_mobile/landing_page(screenshot).png)
 
 #### Home
 
-- This page looks and functions the same as landing page (challenges) but page title is "Active Challenges".
+- This page looks and functions the same as landing page (**challenges**) but page title is "Active Challenges".
     - Difference between the two is that home only displays and does search on activated challenges.
-        - If user clicks red button on a challenge to complete challenge user will be redirected to landing pages (challenges).
+        - If user clicks red button on a challenge to complete challenge user will be redirected to landing page (**Challenges**).
             - Also flash message will occur on top of page with the message of completing a challenge.
 
 ![Home](/static/img/screenshots_mobile/home(screenshot).png)
@@ -315,11 +330,13 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 #### New Challenge
 
 - When at landing page user will see three lines-icon to the right in navbar.
-    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
-        - If user clicks Home, user will be redirected to home page.
-        - If user clicks Challenges, user will reload current page.
-        - If user clicks New Challenge, user will be redirected to Add Challenge page.- User will see page title "Add challenge" on top of page under navbar.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names **Home**, **Challenges** and **New Challenge**.
+        - If user clicks **Home**, user will be redirected to home page.
+        - If user clicks **Challenges**, user will reload current page.
+        - If user clicks **New Challenge**, user will be redirected to **Add Challenge**.
+
 - Below navbar user sees page title "Add challenge".
+
 - Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
     - A pen with an input field to the right of it with label "Challenge Title".
         - Here user can input a title for the challenge (min 5 and max 30 characters).
@@ -327,6 +344,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Here user can input a description for the challenge (min 10 and max 150 characters).
     - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
         - Here user chooses a radio button to declare how long time the challenge is to be perfomed.
+
 - Below the user find two buttons - centered on top of eachother - saying "cancel" with a circle and cross-icon and "add challenge" with square and plus-icon.
     - If user clicks cancel user is redirected to challenges page.
     - If user clicks add challenge user is redirected to challengges page and flash message is displayed "Challenge Successfully Added".
@@ -336,11 +354,13 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
 #### Edit Challenge
 
 - When at landing page user will see three lines-icon to the right in navbar.
-    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names Home, Challenges and New Challenges.
+    - If user clicks three line-icon mobile menu will open from the left with logo on top and then links with names **Home**, **Challenges** and **New Challenge**.
         - If user clicks Home, user will be redirected to home page.
         - If user clicks Challenges, user will reload current page.
-        - If user clicks New Challenge, user will be redirected to Add Challenge page.- User will see page title "Edit challenge" on top of page under navbar.
+        - If user clicks New Challenge, user will be redirected to Add Challenge page.
+
 - Below navbar user sees page title "Edit challenge".
+
 - Below page title user will see a form with (3) icons aligned the left stack underneath eachother:
     - A pen with an input field to the right of it with label "Challenge Title".
         - Here user can change the title for the challenge (min 5 and max 30 characters).
@@ -348,6 +368,7 @@ For 500 and 404 errors the user will be redirected to landing page and a flash m
         - Here user can change the description for the challenge (min 10 and max 150 characters).
     - A clock with label to the right "Time to complete" and underneath radiobuttons with labels next to it a number and written "minute(s)"
         - Here user can keep or re-choose a radio button to declare how long time the challenge is to be perfomed.
+
 - Below the user sees two buttons - centered on top of eachother - saying "cancel" with a circle and cross-icon and "edit challenge" with square and plus-icon.
     - If user clicks edit button the amount of completions for the challenge will be reset to 0.
         - This is because there is a possiblilty that the challenge is changed in the way that it can't be seen as the same challenge.
